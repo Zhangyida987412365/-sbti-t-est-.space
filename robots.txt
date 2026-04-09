@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zhangyida987412365.github.io/-sbti-t-est-.space/sitemap.xml
