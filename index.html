@@ -825,6 +825,236 @@
         grid-template-columns: 1fr;
       }
     }
+    
+    /* Share Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .share-modal {
+      background: #fff;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 20px;
+      padding: 30px 24px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      position: relative;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-height: 90vh;
+    }
+    .modal-overlay.active .share-modal {
+      transform: translateY(0);
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      cursor: pointer;
+      color: #999;
+      background: transparent;
+      border: none;
+      padding: 4px;
+    }
+    .share-modal-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1e2a22;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .share-modal-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .share-modal-title svg {
+      color: #07c160;
+    }
+    .share-modal-preview-wrap {
+      width: 100%;
+      background: #f7f9f7;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 24px;
+      overflow-y: auto;
+      border: 1px solid var(--line);
+    }
+    .share-modal-preview-wrap img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .share-modal-bottom-actions {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+    }
+    .share-modal-bottom-actions button {
+      flex: 1;
+      padding: 14px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .btn-green {
+      background: #07c160;
+      color: #fff;
+    }
+    .btn-green:hover { background: #06ad56; transform: translateY(-1px); }
+    .btn-outline {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+    .btn-outline:hover { background: #fdfdfd; transform: translateY(-1px); }
+    
+    /* Poster Elements (Hidden) */
+    .poster-container-hidden {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+      z-index: -9999;
+      /* Using exact dimensions for canvas extraction */
+      width: 440px;
+      background: #f4f3ed;
+      padding: 24px;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+    .poster-inner {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+    }
+    .poster-kicker {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .poster-type-name {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--accent-strong);
+      margin-bottom: 24px;
+    }
+    .poster-image {
+      height: 180px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+    .poster-pill {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .poster-main-title {
+      font-size: 32px;
+      font-weight: 900;
+      color: #1a1a1a;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .poster-sub-title {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .poster-divider {
+      width: 100%;
+      height: 1px;
+      background: #f0f0f0;
+      margin-bottom: 24px;
+    }
+    .poster-footer {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .poster-qr-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .poster-qr-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .poster-qr-box {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+    .poster-qr-box canvas, .poster-qr-box img {
+      width: 100%;
+      height: 100%;
+    }
+    .poster-qr-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .poster-qr-title {
+      font-size: 13px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 4px;
+    }
+    .poster-qr-desc {
+      font-size: 11px;
+      color: #999;
+      line-height: 1.4;
+    }
+    .poster-mp-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: #f0f0f0;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: bold;
+      color: #999;
+      text-align: center;
+      padding: 8px;
+      flex-shrink: 0;
+      border: 1px dashed #ccc;
+      box-sizing: border-box;
+    }
   </style>
 </head>
 
@@ -840,10 +1070,10 @@
         <div class="hero-actions hero-actions-single">
           <button id="startBtn" class="btn-primary">开始测试</button>
         </div>
-        <div style="padding-top: 2rem; display: flex; flex-direction: column;">
-          <span>
-            作者：抖音@游戏打益达
-          </span>
+        <div style="padding-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 14px; color: var(--muted);">
+          <a href="https://space.bilibili.com/417038183" target="_blank" style="color: #00A1D6; font-weight: 700; text-decoration: none;">B站UP主@Q肉儿串儿原创</a>
+          <span>在 B 站搜索 【SBTI】 重新进入本页面</span>
+          <span>正版稳定测试页面</span>
         </div>
       </div>
     </section>
@@ -885,15 +1115,30 @@
             </div>
           </div>
 
+          <button class="btn-primary share-btn-action" style="padding: 16px; font-size: 16px; width: 100%; border-radius: 18px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            测完啦？先一键分享为敬
+          </button>
+
           <div class="analysis-box">
             <h3>该人格的简单解读</h3>
             <p id="resultDesc"></p>
           </div>
 
+          <button class="btn-primary share-btn-action" style="padding: 16px; font-size: 16px; width: 100%; border-radius: 18px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            测得太准了，赶紧分享损友
+          </button>
+
           <div class="dim-box">
             <h3>十五维度评分</h3>
             <div id="dimList" class="dim-list"></div>
           </div>
+
+          <button class="btn-primary share-btn-action" style="padding: 16px; font-size: 16px; width: 100%; border-radius: 18px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            给朋友也做一个发疯测试
+          </button>
 
           <div class="note-box">
             <h3>友情提示</h3>
@@ -903,10 +1148,10 @@
           <details class="author-box">
             <summary>作者的话</summary>
             <div class="author-content">
-              <p>本测试由 抖音@游戏打益达 制作发布，初衷是劝诫一位爱喝酒的朋友戒酒。</p>
-              <p>由于作者的人格是SHIT愤世者，所以平等的攻击了各位，在此抱歉！！</p>
-              <p>关于这个测试，没法很好的平衡娱乐和专业性，因此对于一些人格的阐释较为模糊或完全不准（如屌丝可能并非真的屌丝），如有冒犯非常抱歉！！</p>
-              <p>鉴于时间精力有限，就随便搞了一个先这样玩玩，后续会慢慢完善修改的，总之好玩为主。欢迎关注 抖音@游戏打益达！</p>
+              <p>本测试首发于b站up主Q肉儿串儿（UID417038183），初衷是劝诫一位爱喝酒的朋友戒酒。</p>
+              <p>由于作者的人格是SHIT愤世者，所以平等的攻击了各位，在此抱歉！！不过我是一个绝世大美女，你们一定会原谅我，有B站的朋友们也可以关注我。</p>
+              <p>关于这个测试，这里是在b站制作的官方初版，为了合规做了些许改动，没有很好的平衡娱乐和专业性，up主不是心理学专业，对于一些人格的阐释较为模糊或完全不准，如有冒犯非常抱歉！！</p>
+              <p>再鉴于时间精力有限，就随便搞了一个先这样玩玩，后续会慢慢完善修改的，总之好玩为主，还请不要用于盈利呀。</p>
             </div>
           </details>
         </div>
@@ -914,7 +1159,9 @@
         <div class="result-actions">
           <div style="display:flex; gap:12px; flex-wrap:wrap;">
             <button id="restartBtn" class="btn-secondary">重新测试</button>
+            <button id="viewAllBtn" class="btn-secondary">查看全部人格</button>
             <button id="toTopBtn" class="btn-primary">回到首页</button>
+            <button id="shareBtn" class="btn-primary share-btn-action">一键分享</button>
           </div>
         </div>
       </div>
@@ -922,7 +1169,53 @@
 
   </div>
 
+  <div id="shareModalOverlay" class="modal-overlay">
+    <div class="share-modal">
+      <button class="modal-close" id="closeShareModal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+      <div class="share-modal-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 17.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm14-1.5a2 2 0 1 0-4 0 2 2 0 0 0 4 0zM12 14c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 2.235 1.155 4.227 2.955 5.512l-1.026 3.102 3.444-1.748A8.905 8.905 0 0 0 12 14z"/></svg>
+        测试结果分享
+      </div>
+      <div class="share-modal-subtitle">截图保存海报，或发送给微信好友</div>
+      <div class="share-modal-preview-wrap" id="sharePreviewWrap">
+        <!-- html2canvas image will be injected here -->
+        <p style="color:#999; margin: 40px 0; font-size: 14px;">正在生成海报...</p>
+      </div>
+      <div class="share-modal-bottom-actions">
+        <button class="btn-green" id="savePosterBtn">保存图片</button>
+        <button class="btn-outline" id="copyLinkBtn">复制链接</button>
+      </div>
+    </div>
+  </div>
 
+  <div class="poster-container-hidden" id="posterCanvasNode">
+    <div class="poster-inner">
+      <div class="poster-kicker">你的人格类型是：</div>
+      <div class="poster-type-name" id="posterRenderTypeName">哦不人<br>OH-NO！</div>
+      <img class="poster-image" id="posterRenderImage" src="" alt="">
+      <div class="poster-pill" id="posterRenderPill">OH-NO</div>
+      <div class="poster-main-title" id="posterRenderTitle">哦不人</div>
+      <div class="poster-sub-title" id="posterRenderSub">哦不！我怎么会是这个人格？！</div>
+      <div class="poster-divider"></div>
+      <div class="poster-footer">
+        <div class="poster-qr-column">
+          <div class="poster-qr-row">
+            <div class="poster-qr-box" id="posterRenderWebQr"></div>
+            <div class="poster-qr-text">
+              <div class="poster-qr-title">扫码测测你的SBTI人格</div>
+              <div class="poster-qr-desc" style="white-space: nowrap;"><span id="posterRenderHost"></span><br>SBTI测试 · 毒舌解析</div>
+            </div>
+          </div>
+        </div>
+        <div class="poster-mp-box">小程序<br>二维码</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script>
     const dimensionMeta = {
       S1: { name: 'S1 自尊自信', model: '自我模型' },
@@ -1883,6 +2176,141 @@
     document.getElementById('submitBtn').addEventListener('click', renderResult);
     document.getElementById('restartBtn').addEventListener('click', () => startTest(false));
     document.getElementById('toTopBtn').addEventListener('click', () => showScreen('intro'));
+    
+    document.getElementById('viewAllBtn').addEventListener('click', () => {
+      window.location.href = 'all_results.html';
+    });
+    
+    document.querySelectorAll('.share-btn-action').forEach(btn => {
+      btn.addEventListener('click', () => {
+        openShareModal();
+      });
+    });
+
+    const shareModalOverlay = document.getElementById('shareModalOverlay');
+    const closeShareModalBtn = document.getElementById('closeShareModal');
+    let generatedPosterBase64 = null;
+
+    closeShareModalBtn.addEventListener('click', () => {
+      shareModalOverlay.classList.remove('active');
+    });
+
+    function openShareModal() {
+      shareModalOverlay.classList.add('active');
+      const wrap = document.getElementById('sharePreviewWrap');
+      wrap.innerHTML = '<p style="color:#999; margin: 40px 0; font-size: 14px;">正在拼命绘制海报中...</p>';
+      
+      const resName = document.getElementById('resultTypeName').textContent;
+      const resSub = document.getElementById('resultTypeSub').textContent;
+      const posterSrc = document.getElementById('posterImage').src;
+      
+      // Parse "HHKB（代码敲击者）" into format like image 4
+      let mainTitle = resName;
+      let enCode = resName;
+      let cnName = resName;
+      const match = resName.match(/^([A-Z0-9-]+)（(.+)）$/);
+      if(match) {
+        enCode = match[1];
+        cnName = match[2];
+        mainTitle = `${cnName}<br><span style="color:var(--accent-strong); font-size: 18px;">${enCode}！</span>`;
+      }
+      
+      document.getElementById('posterRenderTypeName').innerHTML = mainTitle;
+      document.getElementById('posterRenderPill').textContent = enCode;
+      document.getElementById('posterRenderTitle').textContent = cnName;
+      document.getElementById('posterRenderSub').textContent = resSub;
+      
+      const pImg = document.getElementById('posterRenderImage');
+      pImg.src = posterSrc;
+      
+      document.getElementById('posterRenderHost').textContent = window.location.host || 'sbti-test.space';
+      
+      // Generate QR
+      document.getElementById('posterRenderWebQr').innerHTML = '';
+      new QRCode(document.getElementById('posterRenderWebQr'), {
+        text: window.location.href,
+        width: 60,
+        height: 60,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.M
+      });
+
+      const pImg = document.getElementById('posterRenderImage');
+      pImg.crossOrigin = 'anonymous'; // Prevent specific CORS tainting
+      
+      const renderCanvas = () => {
+        const node = document.getElementById('posterCanvasNode');
+        html2canvas(node, {
+          backgroundColor: '#f4f3ed',
+          scale: 2,
+          useCORS: true,
+          allowTaint: true
+        }).then(canvas => {
+          generatedPosterBase64 = canvas.toDataURL('image/png');
+          const img = document.createElement('img');
+          img.src = generatedPosterBase64;
+          wrap.innerHTML = '';
+          wrap.appendChild(img);
+        }).catch(err => {
+          wrap.innerHTML = '<p style="color:red; margin: 40px 0; font-size: 14px;">海报生成失败请重试</p>';
+          console.error('html2canvas error', err);
+        });
+      };
+
+      pImg.onload = () => {
+         // Allow a tiny paint frame gap for QR code generated image
+         setTimeout(renderCanvas, 100);
+      };
+      
+      pImg.onerror = () => {
+         console.warn('Failed to load poster image, capturing anyway');
+         setTimeout(renderCanvas, 100);
+      };
+
+      // Set src after onload/onerror is bound
+      pImg.src = posterSrc;
+    }
+
+    document.getElementById('copyLinkBtn').addEventListener('click', () => {
+      copyUrlToShare();
+      shareModalOverlay.classList.remove('active');
+    });
+
+    document.getElementById('savePosterBtn').addEventListener('click', () => {
+      if(generatedPosterBase64) {
+        const a = document.createElement('a');
+        a.href = generatedPosterBase64;
+        a.download = `SBTI人格测试海报.png`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } else {
+        alert('海报尚未生成完毕，请稍等下载');
+      }
+    });
+
+    function copyUrlToShare() {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          alert('测试链接已复制，快发给朋友看看吧！');
+        }).catch(() => {
+          alert('复制失败，请手动复制浏览器地址栏的链接！');
+        });
+      } else {
+        const input = document.createElement('input');
+        input.value = window.location.href;
+        document.body.appendChild(input);
+        input.select();
+        try {
+          document.execCommand('copy');
+          alert('测试链接已复制，快发给朋友看看吧！');
+        } catch (err) {
+          alert('复制失败，请手动复制浏览器地址栏的链接！');
+        }
+        document.body.removeChild(input);
+      }
+    }
   </script>
 
 </body>
