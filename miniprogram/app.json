@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/test/test",
+    "pages/result/result"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#6c8d71",
+    "navigationBarTitleText": "SBTI人格测试",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f6faf6"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,40 @@
+<view class="shell">
+  <view class="test-wrap card">
+    <view class="topbar">
+      <view class="progress">
+        <view class="progress-inner" style="width:{{percent}}%"></view>
+      </view>
+      <view class="progress-text">{{doneCount}} / {{totalCount}}</view>
+    </view>
+
+    <view class="question-list">
+      <block wx:for="{{visibleQuestions}}" wx:key="id" wx:for-index="index">
+        <view class="question">
+          <view class="question-meta">
+            <view class="badge">第 {{index + 1}} 题</view>
+            <view>维度已隐藏</view>
+          </view>
+          <view class="question-title">{{item.text}}</view>
+          
+          <radio-group class="options" bindchange="onRadioChange" data-qid="{{item.id}}">
+            <block wx:for="{{item.options}}" wx:key="value" wx:for-item="opt" wx:for-index="optIdx">
+              <label class="option {{answers[item.id] == opt.value ? 'selected' : ''}}">
+                <radio value="{{opt.value}}" checked="{{answers[item.id] == opt.value}}" color="#4d6a53"/>
+                <view class="option-code">{{optIdx == 0 ? 'A' : (optIdx == 1 ? 'B' : (optIdx == 2 ? 'C' : 'D'))}}</view>
+                <view class="option-text">{{opt.label}}</view>
+              </label>
+            </block>
+          </radio-group>
+        </view>
+      </block>
+    </view>
+
+    <view class="actions-bottom">
+      <view class="hint">{{hintText}}</view>
+      <view class="btn-group">
+        <button class="btn-secondary btn-half" bindtap="goBack">返回首页</button>
+        <button class="btn-primary btn-half" disabled="{{!isComplete}}" bindtap="submitTest">查结果</button>
+      </view>
+    </view>
+  </view>
+</view>

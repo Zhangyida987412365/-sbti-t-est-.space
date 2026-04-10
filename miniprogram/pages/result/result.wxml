@@ -1,0 +1,56 @@
+<view class="shell">
+  <view class="result-wrap card">
+    <view class="result-layout">
+      
+      <!-- Top Overview -->
+      <view class="result-top">
+        <view class="poster-box {{!result.finalType.code || result.finalType.code === '' ? 'no-image' : ''}}">
+          <image class="poster-image" src="{{imageSrc}}" mode="aspectFit" wx:if="{{imageSrc}}"></image>
+          <view class="poster-caption">{{result.finalType.intro}}</view>
+        </view>
+
+        <view class="type-box">
+          <view class="type-kicker">{{result.modeKicker}}</view>
+          <view class="type-name">{{result.finalType.code}}（{{result.finalType.cn}}）</view>
+          <view class="match">{{result.badge}}</view>
+          <view class="type-subname">{{result.sub}}</view>
+        </view>
+      </view>
+
+      <!-- Analysis -->
+      <view class="analysis-box">
+        <view class="box-title">该人格的简单解读</view>
+        <view class="analysis-text"><text>{{result.finalType.desc}}</text></view>
+      </view>
+
+      <!-- Dimensions -->
+      <view class="dim-box">
+        <view class="box-title">十五维度评分</view>
+        <view class="dim-list">
+          <block wx:for="{{dimList}}" wx:key="index">
+            <view class="dim-item">
+              <view class="dim-item-top">
+                <view class="dim-item-name">{{item.name}}</view>
+                <view class="dim-item-score">{{item.level}} / {{item.score}}分</view>
+              </view>
+              <view class="dim-item-text">{{item.explanation}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+
+      <!-- Footer Note -->
+      <view class="note-box">
+        <view class="box-title">友情提示</view>
+        <view class="note-text">{{funNote}}</view>
+      </view>
+      
+      <!-- Actions -->
+      <view class="result-actions">
+        <button class="btn-secondary btn-half" bindtap="retest">重新测试</button>
+        <button class="btn-primary btn-half" bindtap="goHome">回到首页</button>
+      </view>
+
+    </view>
+  </view>
+</view>

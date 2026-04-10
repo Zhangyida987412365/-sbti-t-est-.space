@@ -1,0 +1,11 @@
+<view class="shell">
+  <view class="hero card hero-minimal">
+    <view class="title">MBTI已经过时，SBTI来了。</view>
+    <view class="hero-actions hero-actions-single">
+      <button class="btn-primary" bindtap="startTest">开始测试</button>
+    </view>
+    <view class="author-info">
+      <text>作者：抖音@游戏打益达</text>
+    </view>
+  </view>
+</view>

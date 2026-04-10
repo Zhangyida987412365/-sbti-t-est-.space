@@ -1,0 +1,137 @@
+.test-wrap {
+  margin-top: 22rpx;
+  padding: 32rpx;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.progress {
+  flex: 1;
+  height: 20rpx;
+  background: #edf3ee;
+  border-radius: 999rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-inner {
+  height: 100%;
+  background: linear-gradient(90deg, #97b59c, #5b7a62);
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  color: var(--muted);
+  font-size: 26rpx;
+}
+
+.question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+.question {
+  border: 1px solid var(--line);
+  border-radius: 24rpx;
+  padding: 32rpx;
+  background: linear-gradient(180deg, #ffffff, #fbfdfb);
+}
+
+.question-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  color: var(--muted);
+  font-size: 24rpx;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999rpx;
+  padding: 8rpx 16rpx;
+  background: var(--soft);
+  border: 1px solid var(--line);
+}
+
+.question-title {
+  font-size: 32rpx;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  margin-bottom: 24rpx;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 16rpx;
+  padding: 24rpx;
+  border-radius: 20rpx;
+  border: 1px solid var(--line);
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.option.selected {
+  border-color: #bcd0c1;
+  background: #f8fcf9;
+}
+
+radio {
+  transform: scale(0.85);
+}
+
+.option-code {
+  font-weight: 800;
+  color: var(--accent-strong);
+  min-width: 44rpx;
+  padding-top: 4rpx;
+}
+
+.option-text {
+  flex: 1;
+  padding-top: 4rpx;
+}
+
+.actions-bottom {
+  margin-top: 40rpx;
+  padding-top: 20rpx;
+  border-top: 1px solid var(--line);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 26rpx;
+  line-height: 1.6;
+  margin-bottom: 24rpx;
+}
+
+.btn-group {
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn-half {
+  flex: 1;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+}
+
+button[disabled] {
+  opacity: 0.5;
+}

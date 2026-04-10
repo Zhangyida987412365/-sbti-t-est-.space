@@ -1,0 +1,43 @@
+.hero {
+  padding: 56rpx;
+  margin-top: 40rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-minimal {
+  min-height: 48vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 84rpx 40rpx;
+}
+
+.title {
+  font-size: 56rpx;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24rpx;
+  margin-top: 44rpx;
+}
+
+.hero-actions-single {
+  justify-content: center;
+  margin-top: 56rpx;
+}
+
+.author-info {
+  margin-top: 60rpx;
+  display: flex;
+  flex-direction: column;
+  color: var(--muted);
+  font-size: 28rpx;
+}
