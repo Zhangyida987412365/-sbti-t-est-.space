@@ -1214,8 +1214,6 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script>
     const dimensionMeta = {
       S1: { name: 'S1 自尊自信', model: '自我模型' },
@@ -2220,9 +2218,6 @@
       document.getElementById('posterRenderTitle').textContent = cnName;
       document.getElementById('posterRenderSub').textContent = resSub;
       
-      const pImg = document.getElementById('posterRenderImage');
-      pImg.src = posterSrc;
-      
       document.getElementById('posterRenderHost').textContent = window.location.host || 'sbti-test.space';
       
       // Generate QR
@@ -2313,6 +2308,9 @@
     }
   </script>
 
+  <!-- Load heavy sharing libraries asynchronously so they don't block main app initialization -->
+  <script defer src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </body>
 
 </html>
